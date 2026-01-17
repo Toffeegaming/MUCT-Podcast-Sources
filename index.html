@@ -1,224 +1,353 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcast Sources & References</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Podcast Sources & References</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 40px 20px;
+                line-height: 1.6;
+            }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            color: #2d3748;
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #718096;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .intro {
-            background: #f7fafc;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 35px;
-            border-left: 4px solid #667eea;
-            color: #4a5568;
-        }
-
-        .sources-list {
-            list-style: none;
-        }
-
-        .sources-list li {
-            margin-bottom: 20px;
-            padding: 18px;
-            background: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-left: 45px;
-        }
-
-        .sources-list li:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .sources-list li::before {
-            content: "→";
-            position: absolute;
-            left: 18px;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.3em;
-        }
-
-        .sources-list a {
-            color: #4a5568;
-            text-decoration: none;
-            word-break: break-word;
-            display: block;
-            font-size: 0.95em;
-        }
-
-        .sources-list a:hover {
-            color: #667eea;
-        }
-
-        .source-domain {
-            display: block;
-            font-size: 0.85em;
-            color: #a0aec0;
-            margin-top: 5px;
-            font-weight: 500;
-        }
-
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            color: #718096;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
             .container {
-                padding: 30px 25px;
+                max-width: 800px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 50px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             }
 
             h1 {
-                font-size: 2em;
+                color: #2d3748;
+                font-size: 2.5em;
+                margin-bottom: 15px;
+                text-align: center;
+                font-weight: 700;
+            }
+
+            .subtitle {
+                text-align: center;
+                color: #718096;
+                font-size: 1.1em;
+                margin-bottom: 40px;
+                font-weight: 400;
+            }
+
+            .intro {
+                background: #f7fafc;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 35px;
+                border-left: 4px solid #667eea;
+                color: #4a5568;
+            }
+
+            .video-container {
+                margin: 30px 0;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .video-container video {
+                width: 100%;
+                display: block;
+                background: #000;
+            }
+
+            .credits {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 25px;
+                border-radius: 10px;
+                margin: 30px 0;
+                text-align: center;
+                color: white;
+            }
+
+            .credits h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+
+            .credits .team-members {
+                font-size: 1.05em;
+                line-height: 1.8;
+            }
+
+            .credits strong {
+                font-weight: 600;
+            }
+
+            .sources-list {
+                list-style: none;
             }
 
             .sources-list li {
-                padding-left: 35px;
+                margin-bottom: 20px;
+                padding: 18px;
+                background: #ffffff;
+                border-radius: 10px;
+                border: 1px solid #e2e8f0;
+                transition: all 0.3s ease;
+                position: relative;
+                padding-left: 45px;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>📻 Podcast Sources</h1>
-        <p class="subtitle">Research & References</p>
-        
-        <div class="intro">
-            <p>Below you'll find all the sources and references used in our podcast episode. These materials informed our research and discussion.</p>
+
+            .sources-list li:hover {
+                transform: translateX(5px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+                border-color: #667eea;
+            }
+
+            .sources-list li::before {
+                content: "→";
+                position: absolute;
+                left: 18px;
+                color: #667eea;
+                font-weight: bold;
+                font-size: 1.3em;
+            }
+
+            .sources-list a {
+                color: #4a5568;
+                text-decoration: none;
+                word-break: break-word;
+                display: block;
+                font-size: 0.95em;
+            }
+
+            .sources-list a:hover {
+                color: #667eea;
+            }
+
+            .source-domain {
+                display: block;
+                font-size: 0.85em;
+                color: #a0aec0;
+                margin-top: 5px;
+                font-weight: 500;
+            }
+
+            footer {
+                margin-top: 50px;
+                text-align: center;
+                color: #718096;
+                font-size: 0.9em;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 30px 25px;
+                }
+
+                h1 {
+                    font-size: 2em;
+                }
+
+                .sources-list li {
+                    padding-left: 35px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                📻 Podcast session | Minor Understanding (Counter) Terrorism
+            </h1>
+            <p class="subtitle">Zuyd Hogeschool 2025-2026</p>
+
+            <div class="video-container">
+                <video controls>
+                    <source
+                        src="https://github.com/Toffeegaming/MUCT-Podcast-Sources/raw/3241677478f8ce95eb47a0141c150b8f6d7beb15/assets/Podcast.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="credits">
+                <h2>Podcast Team</h2>
+                <p class="team-members">
+                    <strong>Hosted by:</strong><br />
+                    Janina Deepen • Betty Satty • Raquel de Sousa Baltazar
+                    Ferreira Correia<br />
+                    <strong>Produced by:</strong><br />
+                    Cas Olischläger
+                </p>
+            </div>
+
+            <div class="intro">
+                <p>
+                    Below you'll find all the sources and references used in our
+                    podcast episode. These materials informed our research and
+                    discussion.
+                </p>
+            </div>
+
+            <ul class="sources-list">
+                <li>
+                    <a
+                        href="https://projects.apnews.com/features/2023/mass-killings/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        AP News - Mass Killings Database (2023)
+                        <span class="source-domain">projects.apnews.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://worldpopulationreview.com/country-rankings/mass-shootings-by-country"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Mass Shootings by Country Rankings
+                        <span class="source-domain"
+                            >worldpopulationreview.com</span
+                        >
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.washingtonpost.com/world/2025/12/15/mass-shootings-australia-us-nz-uk-canada/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Washington Post - Mass Shootings Comparison (Australia,
+                        US, NZ, UK, Canada)
+                        <span class="source-domain">washingtonpost.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.reuters.com/world/mass-shootings-europe-past-40-years-2025-06-10"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Reuters - Mass Shootings in Europe (Past 40 Years)
+                        <span class="source-domain">reuters.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://jmvr.org/2023/02/do-mass-shootings-in-central-and-eastern-europe-differ-from-u-s-mass-shootings-insights-from-the-mscee-data/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Journal of Mass Violence Research - Central and Eastern
+                        Europe Mass Shootings Analysis
+                        <span class="source-domain">jmvr.org</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://vlaamsvredesinstituut.eu/wp-content/uploads/2019/10/Report_Armed_to_kill_web.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Flemish Peace Institute - Armed to Kill Report (PDF)
+                        <span class="source-domain"
+                            >vlaamsvredesinstituut.eu</span
+                        >
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.axios.com/2026/01/08/salt-lake-city-shooting-utah-lds-church"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Axios - Salt Lake City Shooting at LDS Church
+                        <span class="source-domain">axios.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://cssh.northeastern.edu/sccj/wp-content/uploads/sites/5/2022/10/Preference-for-the-Longstanding-Definition-of-Mass-Shooting-Fox-Fridel-2.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Northeastern University - Definition of Mass Shooting
+                        Study (PDF)
+                        <span class="source-domain">cssh.northeastern.edu</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://nmvvrc.org/learn/about-mass-violence/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        National Mass Violence Victimization Resource Center -
+                        About Mass Violence
+                        <span class="source-domain">nmvvrc.org</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.nkvts.no/english/project/the-terror-attack-experience-and-reactions-among-utoya-survivors/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Norwegian Centre for Violence and Traumatic Stress
+                        Studies - Utøya Survivors Study
+                        <span class="source-domain">nkvts.no</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://d-nb.info/1177900971/34"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        German National Library - Research Document
+                        <span class="source-domain">d-nb.info</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.dw.com/en/prague-shooting-memorial-held-as-police-search-for-motive/a-67799025"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Deutsche Welle - Prague Shooting Memorial Coverage
+                        <span class="source-domain">dw.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://gallaudet.edu/academic-affairs/tragedy-strikes-deaf-studies-program-at-charles-university-in-the-czech-republic/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gallaudet University - Charles University Tragedy
+                        Statement
+                        <span class="source-domain">gallaudet.edu</span>
+                    </a>
+                </li>
+            </ul>
+
+            <footer>
+                <p>
+                    All links open in a new window. This page will remain
+                    available indefinitely.
+                </p>
+            </footer>
         </div>
-
-        <ul class="sources-list">
-            <li>
-                <a href="https://projects.apnews.com/features/2023/mass-killings/index.html" target="_blank" rel="noopener noreferrer">
-                    AP News - Mass Killings Database (2023)
-                    <span class="source-domain">projects.apnews.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://worldpopulationreview.com/country-rankings/mass-shootings-by-country" target="_blank" rel="noopener noreferrer">
-                    Mass Shootings by Country Rankings
-                    <span class="source-domain">worldpopulationreview.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.washingtonpost.com/world/2025/12/15/mass-shootings-australia-us-nz-uk-canada/" target="_blank" rel="noopener noreferrer">
-                    Washington Post - Mass Shootings Comparison (Australia, US, NZ, UK, Canada)
-                    <span class="source-domain">washingtonpost.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.reuters.com/world/mass-shootings-europe-past-40-years-2025-06-10" target="_blank" rel="noopener noreferrer">
-                    Reuters - Mass Shootings in Europe (Past 40 Years)
-                    <span class="source-domain">reuters.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://jmvr.org/2023/02/do-mass-shootings-in-central-and-eastern-europe-differ-from-u-s-mass-shootings-insights-from-the-mscee-data/" target="_blank" rel="noopener noreferrer">
-                    Journal of Mass Violence Research - Central and Eastern Europe Mass Shootings Analysis
-                    <span class="source-domain">jmvr.org</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://vlaamsvredesinstituut.eu/wp-content/uploads/2019/10/Report_Armed_to_kill_web.pdf" target="_blank" rel="noopener noreferrer">
-                    Flemish Peace Institute - Armed to Kill Report (PDF)
-                    <span class="source-domain">vlaamsvredesinstituut.eu</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.axios.com/2026/01/08/salt-lake-city-shooting-utah-lds-church" target="_blank" rel="noopener noreferrer">
-                    Axios - Salt Lake City Shooting at LDS Church
-                    <span class="source-domain">axios.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://cssh.northeastern.edu/sccj/wp-content/uploads/sites/5/2022/10/Preference-for-the-Longstanding-Definition-of-Mass-Shooting-Fox-Fridel-2.pdf" target="_blank" rel="noopener noreferrer">
-                    Northeastern University - Definition of Mass Shooting Study (PDF)
-                    <span class="source-domain">cssh.northeastern.edu</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://nmvvrc.org/learn/about-mass-violence/" target="_blank" rel="noopener noreferrer">
-                    National Mass Violence Victimization Resource Center - About Mass Violence
-                    <span class="source-domain">nmvvrc.org</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.nkvts.no/english/project/the-terror-attack-experience-and-reactions-among-utoya-survivors/" target="_blank" rel="noopener noreferrer">
-                    Norwegian Centre for Violence and Traumatic Stress Studies - Utøya Survivors Study
-                    <span class="source-domain">nkvts.no</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://d-nb.info/1177900971/34" target="_blank" rel="noopener noreferrer">
-                    German National Library - Research Document
-                    <span class="source-domain">d-nb.info</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.dw.com/en/prague-shooting-memorial-held-as-police-search-for-motive/a-67799025" target="_blank" rel="noopener noreferrer">
-                    Deutsche Welle - Prague Shooting Memorial Coverage
-                    <span class="source-domain">dw.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://gallaudet.edu/academic-affairs/tragedy-strikes-deaf-studies-program-at-charles-university-in-the-czech-republic/" target="_blank" rel="noopener noreferrer">
-                    Gallaudet University - Charles University Tragedy Statement
-                    <span class="source-domain">gallaudet.edu</span>
-                </a>
-            </li>
-        </ul>
-
-        <footer>
-            <p>All links open in a new window. This page will remain available indefinitely.</p>
-        </footer>
-    </div>
-</body>
+    </body>
 </html>
